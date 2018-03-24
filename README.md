@@ -96,7 +96,7 @@ vgc -d test
 ```
 will generate:
 
-**my-directive.directive.js**
+**test.directive.ts**
 ```javascript
 import Vue from 'vue';
 
@@ -126,4 +126,23 @@ export const TestDirective
 
 // You can also make it available globally.
 Vue.directive('test', TestDirective);
+```
+
+
+### Create new Pipe (filter)
+```bash
+vgc -p test
+```
+will generate:
+
+**test.pipe.ts**
+```javascript
+import Vue from 'vue';
+
+export const Test = function (value) {
+    return value;
+};
+
+Vue.filter('test', Test});
+
 ```
