@@ -1,36 +1,13 @@
 {
-  "_from": "vue-generate-component",
-  "_id": "vue-generate-component@1.2.4",
-  "_inBundle": false,
-  "_integrity": "sha512-xjN3R/dYVgDxmzTTaHdn+vjdtzHzUtjmdDEf9zYHWngetro9eXBsWZpDWWBQ70O9SQwXkppN+q9uXCuNkDzMew==",
-  "_location": "/vue-generate-component",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "tag",
-    "registry": true,
-    "raw": "vue-generate-component",
-    "name": "vue-generate-component",
-    "escapedName": "vue-generate-component",
-    "rawSpec": "",
-    "saveSpec": null,
-    "fetchSpec": "latest"
-  },
-  "_requiredBy": [
-    "#USER"
-  ],
-  "_resolved": "https://registry.npmjs.org/vue-generate-component/-/vue-generate-component-1.2.4.tgz",
-  "_shasum": "1cc01f56b69297006ce031930b7fbf92070c0257",
-  "_spec": "vue-generate-component",
-  "_where": "C:\\Users\\KamarMeddah",
   "author": {
-    "name": "Netanel Basal",
-    "email": "netanel7799@gmail.com"
+    "name": "Kamar Meddah",
+    "email": "kamar.meddah@gmail.com"
   },
   "bin": {
     "vgc": "dist/vgc.js"
   },
   "bugs": {
-    "url": "https://github.com/NetanelBasal/vue-generate-component/issues"
+    "url": "https://github.com/Kamar-Meddah/vue-generate-component/issues"
   },
   "bundleDependencies": false,
   "dependencies": {
@@ -52,7 +29,7 @@
   "files": [
     "dist"
   ],
-  "homepage": "https://github.com/NetanelBasal/vue-generate-component",
+  "homepage": "https://github.com/Kamar-Meddah/vue-generate-component",
   "keywords": [
     "vue js",
     "vue js component",
@@ -61,15 +38,15 @@
   ],
   "license": "ISC",
   "main": "lib/vgc.js",
-  "name": "vue-generate-component",
+  "name": "vue-generate-component-typescript",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NetanelBasal/vue-generate-component.git"
+    "url": "git+https://github.com/kamar-meddah/vue-generate-component.git"
   },
   "scripts": {
     "build": "rm -rf dist && npm run gulp -- build",
     "gulp": "gulp",
     "prepublish": "npm run build"
   },
-  "version": "1.2.4"
+  "version": "1.3.4"
 }
