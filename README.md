@@ -3,7 +3,7 @@
 CLI util for easy generate Vue js component
 ## Installation
 ```js
-npm install -g vue-generate-component
+npm install -g vue-generate-component-typescript
 ```
 
 ## Usage
@@ -20,66 +20,26 @@ Will generate five files:
 
 **footer.component.js**
 ```javascript
-export default  {
-  name: 'footer',
-  props: [],
-  mounted() {
-    
-  },
-  data() {
-    return {
-      
-    }
-  },
-  methods: {
-   
-  },
-  computed: {
+import Vue from 'vue';
+import Component from 'vue-class-component';
 
+@Component({})
+export default class FooterComponent extends Vue {
+
+  mounted (){
+    console.log('hello from app');
   }
+  
 }
 
 ```
 
-**footer.component.spec.js**
-```javascript
-import Vue from 'vue';
-import FooterComponent from './index.vue';
-
-// Here are some Jasmine 2.0 tests, though you can
-// use any test runner / assertion library combo you prefer
-describe('FooterComponent', () => {
-  // Inspect the raw component options
-  it('has a created hook', () => {
-    // expect(typeof FooterComponent.created).toBe('function');
-  })
-  // Evaluate the results of functions in
-  // the raw component options
-  it('sets the correct default data', () => {
-    // expect(typeof FooterComponent.data).toBe('function')
-    // const defaultData = FooterComponent.data();
-    // expect(defaultData.message).toBe('hello!');
-  })
-  // Inspect the component instance on mount
-  it('correctly sets the message when created', () => {
-    // const vm = new Vue(FooterComponent).$mount();
-    // expect(vm.message).toBe('bye!');
-  })
-  // Mount an instance and inspect the render output
-  it('renders the correct message', () => {
-    // const Ctor = Vue.extend(FooterComponent);
-    // const vm = new Ctor().$mount();
-    // expect(vm.$el.textContent).toBe('bye!');
-  })
-})
-
-```
 
 **footer.component.html**
 ```html
-<section class="footer">
+<div class="footer">
   <h1>footer Component</h1>
-</section>
+</div>
 
 ```
 
@@ -93,7 +53,7 @@ describe('FooterComponent', () => {
 **index.vue**
 ```html
 <template src="./footer.component.html"></template>
-<script src="./footer.component.js"></script>
+<script src="./footer.component.ts" lang="ts"></script>
 <style src="./footer.component.scss" scoped lang="scss"></style>
 ```
 
@@ -103,30 +63,23 @@ vgc -s home
 ```
 will generate one vue file:
 ```javascript
-<template lang="html">
-  <section class="home">
+<template>
+  <div class="home">
     <h1>home Component</h1>
-  </section>
+  </div>
 </template>
 
-<script lang="js">
-  export default  {
-    name: 'home',
-    props: [],
-    mounted() {
-      
-    },
-    data() {
-      return {
-        
-      }
-    },
-    methods: {
-    
-    },
-    computed: {
+<script lang="ts">
+import Vue from 'vue';
+import Component from 'vue-class-component';
 
-    }
+@Component({})
+export default class HomeComponent extends Vue {
+
+  mounted (){
+    console.log('hello from app');
+  }
+  
 }
 </script>
 
@@ -137,14 +90,9 @@ will generate one vue file:
 </style>
 ```
 
-### Create new component single file inside new folder
-```bash
-vgc -s home --folder
-```
-
 ### Create new directive
 ```bash
-vgc -d my-directive
+vgc -d test
 ```
 will generate:
 
@@ -152,26 +100,30 @@ will generate:
 ```javascript
 import Vue from 'vue';
 
-Vue.directive('my-directive', {
-  bind() {
+export const TestDirective
+{
 
-  },
-  // When the bound element is inserted into the DOM...
-  inserted(el) {
-    // el.focus();
-  },
-  update() {
+    function bind(el, binding, vnode)
+    {
 
-  },
-  unbind() {
+    }
+    // When the bound element is inserted into the DOM...
+    function inserted(el)
+    {
+        // el.focus();
+    }
 
-  }
-})
+    function update()
+    {
+
+    }
+
+    function unbind()
+    {
+
+    }
+};
+
+// You can also make it available globally.
+Vue.directive('test', TestDirective);
 ```
-
-### Change the default file types for html and style
-```bash
-sudo vgc --html jade --style less
-```
-### PR ME!!!
-If you want to fix/improve the templates please PR ME.
