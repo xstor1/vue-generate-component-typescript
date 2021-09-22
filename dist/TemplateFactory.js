@@ -7,10 +7,6 @@ exports["default"] = void 0;
 
 var _ComponentTpl = _interopRequireDefault(require("./templates/ComponentTpl"));
 
-var _DirectiveTpl = _interopRequireDefault(require("./templates/DirectiveTpl"));
-
-var _PipeTpl = _interopRequireDefault(require("./templates/PipeTpl"));
-
 var _SingleTpl = _interopRequireDefault(require("./templates/SingleTpl"));
 
 var _TemplateGenerator = _interopRequireDefault(require("./TemplateGenerator"));
@@ -40,30 +36,18 @@ var TemplateFactory = /*#__PURE__*/function () {
      */
     function createTemplateFor(cli) {
       /**
-       * Generate Vue 2 component
+       * Generate Vue 3 component
        */
       if (cli.component) {
         return new _TemplateGenerator["default"](new _ComponentTpl["default"](cli.component));
       }
       /**
-       * Generate Vue 2 directive
-       */
-
-
-      if (cli.directive) {
-        return new _TemplateGenerator["default"](new _DirectiveTpl["default"](cli.directive));
-      }
-      /**
-       * Generate Vue 2 single file component
+       * Generate Vue 3 single file component
        */
 
 
       if (cli.single) {
         return new _TemplateGenerator["default"](new _SingleTpl["default"](cli.single, cli.folder));
-      }
-
-      if (cli.pipe) {
-        return new _TemplateGenerator["default"](new _PipeTpl["default"](cli.pipe));
       }
     }
   }]);

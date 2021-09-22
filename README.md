@@ -3,7 +3,7 @@
 CLI util for easy generate Vue js component
 ## Installation
 ```js
-npm install -g vue-generate-component-typescript
+npm i vue-component-class-based-generator --save-dev
 ```
 
 ## Usage
@@ -73,62 +73,5 @@ will generate one vue file:
 <style scoped lang="scss">
 
 </style>
-
-```
-
-### Create new directive
-```bash
-vg -d test
-```
-will generate:
-
-**test.directive.ts**
-```javascript
-import Vue from 'vue';
-
-export const TestDirective
-{
-
-    function bind(el, binding, vnode)
-    {
-
-    }
-    // When the bound element is inserted into the DOM...
-    function inserted(el)
-    {
-        // el.focus();
-    }
-
-    function update()
-    {
-
-    }
-
-    function unbind()
-    {
-
-    }
-};
-
-// You can also make it available globally.
-Vue.directive('test', TestDirective);
-```
-
-
-### Create new Pipe (filter)
-```bash
-vg -p test
-```
-will generate:
-
-**test.pipe.ts**
-```javascript
-import Vue from 'vue';
-
-export const Test = function (value) {
-    return value;
-};
-
-Vue.filter('test', Test});
 
 ```

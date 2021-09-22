@@ -184,7 +184,8 @@ var TemplateGenerator = /*#__PURE__*/function () {
   }, {
     key: "_getSingleTpl",
     value: function _getSingleTpl(type) {
-      var extension = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'js';
+      var extension = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'ts';
+      type = type.toLowerCase();
 
       if (type === 'single') {
         return "".concat(this.TEMPLATES_DIR, "/").concat(type, "/temp.vue");
@@ -215,7 +216,10 @@ var TemplateGenerator = /*#__PURE__*/function () {
 
   }, {
     key: "_createFilePath",
-    value: function _createFilePath(name, type, fileType) {
+    value: function _createFilePath(name, type) {
+      var fileType = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "ts";
+      type = type.toLowerCase();
+
       if (type === 'single') {
         return _path["default"].join(process.cwd(), "".concat(name, ".vue"));
       }
