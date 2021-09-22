@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import { Vue} from 'vue-class-component';
 
 export const {{(name.split('/')[name.split('/').length-1]) | pascalCase}} = function (value) {
     return value;

@@ -1,25 +1,18 @@
 <template>
-  <div class="{{(name.split('/')[name.split('/').length-1]) | kebabCase}}"> 
-      <h1>{{(name.split('/')[name.split('/').length-1]) | kebabCase}}Component</h1>
+  <div>
+     {{(name.split('/')[name.split('/').length-1]) | kebabCase}}Component works
   </div>
 </template>
 <script lang="ts">
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 
-  @Component({})
+@Options({})
   export default class {{(name.split('/')[name.split('/').length-1]) | pascalCase}}Component extends Vue {
 
-    mounted (){
-      console.log('hello from app');
-    }
-    
   }
 
 </script>
 
 <style scoped lang="scss">
-  .{{(name.split('/')[name.split('/').length-1]) | kebabCase}} {
 
-  }
 </style>
