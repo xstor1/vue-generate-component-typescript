@@ -9,10 +9,11 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError("Cannot call a class as a function");
   }
 }
-
 /**
  * DirectiveTpl
  */
+
+
 var DirectiveTpl =
 /**
  *
@@ -25,4 +26,4 @@ function DirectiveTpl(name) {
   this.name = name;
 };
 
-exports.default = DirectiveTpl;
+exports["default"] = DirectiveTpl;

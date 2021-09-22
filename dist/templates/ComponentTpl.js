@@ -9,10 +9,11 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError("Cannot call a class as a function");
   }
 }
-
 /**
  * ComponentTpl
  */
+
+
 var ComponentTpl =
 /**
  *
@@ -26,4 +27,4 @@ function ComponentTpl(name) {
   this.name = name;
 };
 
-exports.default = ComponentTpl;
+exports["default"] = ComponentTpl;

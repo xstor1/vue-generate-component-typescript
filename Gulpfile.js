@@ -5,7 +5,7 @@ var del = require('del');
 gulp.task('dev', function () {
     return gulp.src(['./lib/**/*.js', '!./lib/blueprints/**/*.js'])
         .pipe(babel({
-            presets: ['es2015']
+            presets: ['@babel/preset-env']
         }))
         .pipe(gulp.dest('dist'));
 });

@@ -9,10 +9,11 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError("Cannot call a class as a function");
   }
 }
-
 /**
  * PipeTpl
  */
+
+
 var PipeTpl =
 /**
  *
@@ -25,4 +26,4 @@ function PipeTpl(name) {
   this.name = name;
 };
 
-exports.default = PipeTpl;
+exports["default"] = PipeTpl;

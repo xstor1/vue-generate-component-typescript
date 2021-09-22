@@ -1,60 +1,46 @@
 #! /usr/bin/env node
-'use strict';
+"use strict";
 
-var _commandLineArgs = require('command-line-args');
+var _commandLineArgs = _interopRequireDefault(require("command-line-args"));
 
-var _commandLineArgs2 = _interopRequireDefault(_commandLineArgs);
+var _swig = _interopRequireDefault(require("swig"));
 
-var _swig = require('swig');
+var _path = _interopRequireDefault(require("path"));
 
-var _swig2 = _interopRequireDefault(_swig);
+var _TemplateFactory = _interopRequireDefault(require("./TemplateFactory"));
 
-var _path = require('path');
+var _fs = _interopRequireDefault(require("fs"));
 
-var _path2 = _interopRequireDefault(_path);
+var _config = _interopRequireDefault(require("./config/config"));
 
-var _TemplateFactory = require('./TemplateFactory');
+var _cliOptions = _interopRequireDefault(require("./config/cli-options"));
 
-var _TemplateFactory2 = _interopRequireDefault(_TemplateFactory);
+var _swigFilters = _interopRequireDefault(require("./config/swig-filters"));
 
-var _fs = require('fs');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var _fs2 = _interopRequireDefault(_fs);
-
-var _config = require('./config/config');
-
-var _config2 = _interopRequireDefault(_config);
-
-var _cliOptions = require('./config/cli-options');
-
-var _cliOptions2 = _interopRequireDefault(_cliOptions);
-
-var _swigFilters = require('./config/swig-filters');
-
-var _swigFilters2 = _interopRequireDefault(_swigFilters);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var cli = (0, _commandLineArgs2.default)(_cliOptions2.default);
-
-(0, _swigFilters2.default)(_swig2.default);
+var cli = (0, _commandLineArgs["default"])(_cliOptions["default"]);
+(0, _swigFilters["default"])(_swig["default"]);
 var options = cli.parse().options;
-
 /* ===============
  Ask for help
  =============== */
+
 if (options.help) {
   console.log(cli.getUsage(cli));
 }
-
 /* ===============
  Set the file extensions
  =============== */
+
+
 if (options.html || options.style) {
-  var configData = _config2.default.getConfigFile();
+  var configData = _config["default"].getConfigFile();
+
   configData.filesType.html = options.html ? options.html : configData.filesType.html;
   configData.filesType.style = options.style ? options.style : configData.filesType.style;
-  _config2.default.updateConfigFile(configData);
+
+  _config["default"].updateConfigFile(configData);
 }
 
-_TemplateFactory2.default.createTemplateFor(options);
+_TemplateFactory["default"].createTemplateFor(options);

@@ -9,90 +9,76 @@ npm install -g vue-generate-component-typescript
 ## Usage
 
 ```bash
-vgc --help
+vg --help
 ```
 
 ### Create new component
 ```bash
-vgc footer
+vg footer
 ```
 Will generate five files:
 
-**footer.component.ts**
-```typescript
-import Vue from 'vue';
-import Component from 'vue-class-component';
-
-@Component({})
+**footer.component.vue**
+```vue
+<template src="./footer.component.html"></template>
+<script lang="ts">
+import {Options, Vue} from 'vue-class-component';
+@Options({})
 export default class FooterComponent extends Vue {
 
-  mounted (){
-    console.log('hello from app');
-  }
-  
 }
+</script>
+
+
+<style src="./footer.component.scss" scoped lang="scss"></style>
 
 ```
 
 
 **footer.component.html**
 ```html
-<div class="footer">
-  <h1>footer Component</h1>
+<div>
+    footerComponent works
 </div>
+
 
 ```
 
 **footer.component.scss**
 ```css
-.footer {
 
-}
-```
-
-**index.vue**
-```html
-<template src="./footer.component.html"></template>
-<script src="./footer.component.ts" lang="ts"></script>
-<style src="./footer.component.scss" scoped lang="scss"></style>
 ```
 
 ### Create new component single file
 ```bash
-vgc -s home
+vg -s home
 ```
 will generate one vue file:
 ```javascript
 <template>
-  <div class="home">
-    <h1>home Component</h1>
-  </div>
+    <div>
+        homeComponent works
+    </div>
 </template>
-
 <script lang="ts">
-import Vue from 'vue';
-import Component from 'vue-class-component';
+    import {Options, Vue} from 'vue-class-component';
 
-@Component({})
-export default class HomeComponent extends Vue {
+    @Options({})
+    export default class HomeComponent extends Vue {
 
-  mounted (){
-    console.log('hello from app');
-  }
-  
 }
+
 </script>
 
 <style scoped lang="scss">
-  .home {
 
-  }
 </style>
+
 ```
 
 ### Create new directive
 ```bash
-vgc -d test
+vg -d test
 ```
 will generate:
 
@@ -131,7 +117,7 @@ Vue.directive('test', TestDirective);
 
 ### Create new Pipe (filter)
 ```bash
-vgc -p test
+vg -p test
 ```
 will generate:
 

@@ -9,10 +9,11 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError("Cannot call a class as a function");
   }
 }
-
 /**
  * SingleTpl
  */
+
+
 var SingleTpl =
 /**
  *
@@ -26,4 +27,4 @@ function SingleTpl(name, isDir) {
   this.isDir = isDir;
 };
 
-exports.default = SingleTpl;
+exports["default"] = SingleTpl;
