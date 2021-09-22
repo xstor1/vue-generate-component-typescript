@@ -5,15 +5,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _path = _interopRequireDefault(require("path"));
+var _path = _interopRequireDefault2(require("path"));
 
-var _swig = _interopRequireDefault(require("swig"));
+var _swig = _interopRequireDefault2(require("swig"));
 
-var _fsExtra = _interopRequireDefault(require("fs-extra"));
+var _fsExtra = _interopRequireDefault2(require("fs-extra"));
 
-var _config = _interopRequireDefault(require("./config/config"));
+var _config = _interopRequireDefault2(require("./config/config"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault2(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -21,9 +21,20 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+  };
+}
 /**
  * TemplateGenerator
  */
+
+
 var TemplateGenerator = /*#__PURE__*/function () {
   /**
    * Todo: Inject swig, fs and config to mock them in the future tests
@@ -123,6 +134,12 @@ var TemplateGenerator = /*#__PURE__*/function () {
 
       _fsExtra["default"].readdir(dirPath, function (err, dir) {
         var name = data.name;
+        var tempPath = '';
+        name.split('/').forEach(function (item) {
+          item = _lodash2["default"].kebabCase(item);
+          tempPath = tempPath + item + '/';
+        });
+        name = tempPath.slice(0, -1);
 
         var folder = _path["default"].join(process.cwd(), name);
 
@@ -134,6 +151,7 @@ var TemplateGenerator = /*#__PURE__*/function () {
           var fileName = _this._createFileName(tempFile, name, fileTypes);
 
           filePath = _path["default"].join(folder, fileName);
+          console.log("File generated: " + filePath);
 
           _fsExtra["default"].outputFile(filePath, compiled, function (err) {
             if (err) console.log(err);
@@ -154,6 +172,7 @@ var TemplateGenerator = /*#__PURE__*/function () {
     key: "_createFileName",
     value: function _createFileName(tempFile, name, fileTypes) {
       var newName = tempFile.replace(/temp/, name);
+      newName = newName.replace(newName.split('.')[0], _lodash2["default"].kebabCase(newName.split('.')[0]));
 
       if (newName.indexOf('tpl') > -1) {
         newName = newName.replace(/tpl/, 'component').replace(/extension/, fileTypes.html);

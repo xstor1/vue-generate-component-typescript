@@ -19,7 +19,7 @@
     "fs-extra": "^10.0.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.15",
     "snyk": "^1.720.0",
     "swig": "^1.4.2"
   },
@@ -50,6 +50,6 @@
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect"
   },
-  "version": "1.0.7",
+  "version": "1.1.0",
   "snyk": true
 }
